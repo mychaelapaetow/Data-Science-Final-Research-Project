@@ -1,34 +1,213 @@
-{
-\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{@{\extracolsep{2pt}}l*{2}{c}@{}}
-\hline\hline
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Analyzing the Impact of Access to Clean Water and Sanitation on Economic Growth and Development in Southeast Asia: A Panel Data Analysis}
+\author{Mychaela Paetow }
+\date{December 2020}
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{lscape}
+\usepackage{amsmath}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Across the developing world, access to clean drinking water and sanitation services is often rare. It seems obvious that improving the quality of water and sanitation services in these countries would yield substantial health benefits. Past research has shown that benefits don't stop at health -- improved productivity from a healthier population can produce enormous gains in economic growth and development. The ultimate objective of this paper is to quantify those economic gains. 
 
 
- & (1) & (2) \\
-\hline
-Water & 0.00 & -0.00\sym{**} \\
- & (0.00) & (0.00) \\
-Sanitation & 0.00 & 0.00\sym{**} \\
- & (0.00) & (0.00) \\
-Inflation & -0.00 & 0.00\sym{*} \\
- & (0.00) & (0.00) \\
-Population & -0.01\sym{**} & -0.00\sym{+} \\
- & (0.00) & (0.00) \\
-Government & -0.01\sym{**} & -0.01\sym{**} \\
- & (0.00) & (0.00) \\
-Law & 0.09 & -0.01 \\
- & (0.01) & (0.01) \\
-Trade & -0.00\sym{**} & 0.00\sym{**} \\
- & (0.00) & (0.00) \\
-const & 0.48\sym{**} & 0.81 \\
- & (0.08) & (0.04) \\
 
-\hline
-N & 102 & 102 \\
-F-stat & 222.11 & 35.88 \\
-Adj. R\sym{2} &  &  \\
-F-stat (robust) & 222.11 & 35.88 \\
-R\sym{2} (Within) & 0.90 & 0.46 \\
-\hline\hline
+\section{Literature Review and Framework}
+The vast majority of the current literature and research on this subject focuses on microlevel analyses, primarily in the form of localized case studies performed through randomized control trials (RCTs). Though the empirical results of these studies often differ, the general conclusions suggest that access to clean water and sanitation services can and does have a positive impact on the economy. Macro-level studies tend to be conducted by major public policy organizations or think tanks. In a 2004-2005 report, the World Health Organization (WHO) conducted a large-scale cost-benefit analysis on investing in water and sanitation. The report found that the benefits in sanitation investments are greater than those in water. The report provides an estimate on the economic gains per dollar invested -- specifically, for every 1 USD invested, economic gains ranging from 3 to 34 USD can be realized in the health, individual and household, and agricultural and industrial sectors. 
+
+This study seeks to discover a statistically significant relationship between growth and development (G&D) and access to clean water and sanitation, so it is imperative to review the economic theory underpinning the dynamics of G&D. The academic literature provides a basic framework for regression analysis. Barro (1996) identifies the primary determinants of economic growth as maintenance of the rule of law, government consumption, fertility rates, terms of trade, human capital, and inflation. This study seeks to understand the relationship between G&D and access to water and sanitation, and so the afore-mentioned variables will be used to control for variability in the data, so as to isolate the impact of clean water and sanitation. 
+
+
+\section{Data / Choice of Variables}
+For this study, we will be analyzing two models: (1) a model of economic growth and (2) a model of economic development. We use real GDP per capita Purchasing Power Parity (PPP) as our measure of growth and the Human Development Index (HDI) as our measure of development. HDI takes into account income, education, and health. Data for GDP and HDI was obtained from the World Bank and UN, respectively. Access to clean water and sanitation is measured by the proportion of the population with access to at least basic drinking water services and sanitation services. Data for these variables was obtained from UNICEF. The remaining variables are control variables that are used to account for movements in the dependent variable (real GDP per capita or HDI) otherwise unexplained by the primary independent variables (access to water / sanitation). The control variables specified in this study include government consumption, inflation, population growth, maintenance of rule of law, and trade openness. These variables (or proxies) are identified by Barro (1996) as the primary determinants of economic growth. Data for these variables was collected from the World Bank’s World Development Indicators Database. Tables 1, 2, and 3 provide standard deviation, mean, and median data, respectively, for each country. Table 4 provides descriptive statistics for the entire dataset. 
+
+Figures 2-5 display the trend lines for the primary variables of interest. Figure 2 and 3 show a steady increase in the levels of GDP and HDI, with a slight dip during the 2008-2009 recession. Figure 4 and 5 show the trends in access to sanitation and water. Note that access to sanitation is much rarer than access to water, and growth in these variables is relatively slow-paced. Minh and Nguyen (2011) find that this slow progress can be attributed to poor public policy and lack of public knowledge on the benefits of clean water and sanitation. 
+
+
+\section{Econometric Specification / Methodology}
+To investigate the relationship between access to water and sanitation and economic growth, I apply the following model: 
+\begin{equation}
+	Y_{it} = \alpha_{t} + \beta_{1} Water_{it} + \beta_{2} Sanitation_{it} + \Sigma \beta_{k}X_{it} + {u_i} + \epsilon_{it}
+\end{equation}
+where Y represents the real GDP per capita PPP, α is a constant term, Water and Sanitation represent the proportion of the population with access to at least basic drinking water services and sanitation services, respectively, X is a set of controls, ε is the error term, u is an unobserved country-specific effect, and the subscripts i and t represent country and time period, respectively. This model includes six control variables: government consumption measured by government expenditures, population growth measured by the annual population growth rate, trade openness measured by trade as a percentage of GDP, rule of law measured by the estimation of governance, and inflation measured by the change in the consumer price index. 
+
+
+In a similar fashion, a second model is constructed to investigate the relationship between access to water and sanitation and development: 
+\begin{equation}
+	Z_{it} = \phi_{t} + \eta_{1} Water_{it} + \eta_{2} Sanitation_{it} + \Sigma \eta_{k}X_{it} + {u'_i} + \epsilon'_{it}
+\end{equation}
+This model assumes the same conditioning set as (1) and regresses those variables as well as the water and sanitation variables against HDI, our measure of development, denoted Z in the equation above. Figure 1 displays the correlation matrix for these variables. All correlation coefficients are less than 0.8. Therefore, we can be relatively confident that the model will not suffer from multicollinearity. 
+
+\section{Empirical Results}
+Figure 7 provides regression output for equation (1) and Figure 8 for equation (2). The pooled OLS and random effects estimations for (1) indicate a statistically significant, positive relationship between economic growth and access to water and sanitation. The fixed effects estimation indicates that there is no relationship; in other words, the impact is statistically no different than zero. For (2), the pooled OLS and random effects indicate no relationship between development and access to water and sanitation. The fixed effects provides mixed results, though the size of the coefficients is so small that any impact can be considered negligible. The R-squared and F-stat values for (1) and (2) both indicate a strong goodness of fit. Thus, we can be fairly confident in the model. 
+
+\section{Conclusion}
+It is evident that the empirical results are sensitive to the estimation technique used. Overall, there appears to be a positive, statistically significant relationship between access to water and sanitation and economic growth. The relationship between access to water and sanitation and economic development is less clear. Based on my results, any impact is negligible. More research is needed to come to a definitive conclusion. In accordance with the Pooled OLS and Random Effects estimations, We can estimate that a 1 percent increase in the proportion of the population with access to at least basic drinking water services and sanitation services corresponds to an increase of 50 and 33 US dollars in GDP per capita, respectively. These results, though encouraging, are not conclusive. More research is needed to confirm the robustness of these results and determine which model (Pooled OLS, FE, or RE) best suits the data. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.55]{corr.png}
+\caption{Correlation Matrix}
+\label{fig:universe}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{newplot.png}
+\caption{GDP Trendline}
+\label{fig:universe}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{newplot (4).png}
+\caption{HDI Trendline}
+\label{fig:universe}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{newplot (3).png}
+\caption{Access to Sanitation}
+\label{fig:universe}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{newplot (4) copy.png}
+\caption{Access to Water}
+\label{fig:universe}
+\end{figure}
+
+
+\begin{landscape}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{newplot (2).png}
+\caption{Scatterplots}
+\label{fig:universe}
+\end{figure}
+\end{landscape}
+
+
+
+\begin{landscape}
+
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+\caption{\textbf{Table 1}}
+\label{fig:universe}
+{} &  Sanitation &     Water &         GDP &       HDI &  Population &  Government &  Inflation &       Law &      Trade \\
+Country      &             &           &             &           &             &             &            &           &            \\
+Bangladesh   &    7.140253 &  0.530651 &  350.595919 &  0.044490 &    0.309404 &    0.298065 &   2.354082 &  0.12 &   6.819038 \\
+India        &   13.576212 &  4.357366 &  491.662581 &  0.048377 &    0.236293 &    0.601772 &   2.903324 &  0.11 &   9.629990 \\
+Nepal        &   14.748658 &  2.766536 &  212.407510 &  0.045166 &    0.659973 &    1.064346 &   3.037184 &  0.17 &   4.229528 \\
+Pakistan     &    8.897254 &  1.783284 &  351.261355 &  0.035020 &    0.159700 &    1.183412 &   4.760293 &  0.07 &   3.093554 \\
+Phillippines &    4.766600 &  2.526374 &  778.749237 &  0.023803 &    0.218452 &    0.850642 &   1.848951 &  0.09 &  17.177896 \\
+Vietnam      &    9.836972 &  4.571164 &  680.003563 &  0.037099 &    0.053895 &    0.354431 &   6.096192 &  0.21 &  25.606170 \\
+\bottomrule
 \end{tabular}
-}
+
+
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+\caption{\textbf{Table 2}}
+\label{fig:universe}
+{} &  Sanitation &      Water &          GDP &       HDI &  Population &  Government &  Inflation &       Law &       Trade \\
+Country      &             &            &              &           &             &             &            &           &             \\
+\midrule
+Bangladesh   &   37.089264 &  96.254235 &   749.455041 &  0.5352 &    1.351573 &    5.241902 &   6.428877 & -0.84 &   37.753199 \\
+India        &   37.750007 &  85.722077 &  1101.489783 &  0.5671 &    1.412869 &   10.756112 &   6.446207 &  0.04 &   42.768900 \\
+Nepal        &   37.386518 &  84.553540 &   498.319136 &  0.5102 &    0.896521 &    9.697000 &   6.637663 & -0.69 &   47.797720 \\
+Pakistan     &   46.193471 &  88.638159 &   993.062942 &  0.5132 &    2.251509 &    9.800565 &   7.801257 & -0.84 &   31.409617 \\
+Phillippines &   67.996475 &  89.462691 &  1920.837850 &  0.6623 &    1.781091 &   10.215590 &   3.835674 & -0.44 &   80.979898 \\
+Vietnam      &   68.135213 &  87.441888 &  1220.534024 &  0.6418 &    0.998445 &    6.069424 &   6.799214 & -0.43 &  148.901382 \\
+\bottomrule
+\end{tabular}
+
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+\caption{\textbf{Table 3}}
+\label{fig:universe}
+\toprule
+{} &  Sanitation &      Water &          GDP &     HDI &  Population &  Government &  Inflation &    Law &       Trade \\
+Country      &             &            &              &         &             &             &            &        &             \\
+\midrule
+Bangladesh   &   37.184996 &  96.333206 &   648.449039 &  0.5290 &    1.155831 &    5.151341 &   6.491383 & -0.850 &   38.033110 \\
+India        &   37.643393 &  85.711532 &  1068.253842 &  0.5670 &    1.437736 &   10.611170 &   5.834475 &  0.005 &   43.843968 \\
+Nepal        &   36.667960 &  84.635761 &   477.282266 &  0.5080 &    1.137629 &    9.733298 &   7.394622 & -0.680 &   46.189003 \\
+Pakistan     &   46.632841 &  88.643814 &  1022.958044 &  0.5185 &    2.248193 &   10.095111 &   7.521655 & -0.860 &   32.438675 \\
+Phillippines &   67.119716 &  89.398693 &  1872.403874 &  0.6600 &    1.698105 &   10.381626 &   3.693830 & -0.410 &   74.056459 \\
+Vietnam      &   68.242302 &  87.424911 &  1176.979842 &  0.6470 &    1.008959 &    6.194050 &   6.823407 & -0.500 &  153.267424 \\
+\bottomrule
+\end{tabular}
+\end{landscape}
+
+
+
+
+
+
+\begin{landscape}
+\begin{tabular}{lrrrrrrrrr}
+\caption{\textbf{Table 4}}
+\toprule
+{} &  Sanitation &       Water &          GDP &         HDI &  Population &  Government &   Inflation &         Law &       Trade \\
+\midrule
+count &  108.000000 &  108.000000 &   108.000000 &  108.000000 &  108.000000 &  108.000000 &  108.000000 &  102.000000 &  108.000000 \\
+mean  &   49.091825 &   88.678765 &  1080.616463 &    0.571630 &    1.448668 &    8.630099 &    6.324816 &   -0.533529 &   64.935119 \\
+std   &   17.174648 &    4.844056 &   673.372709 &    0.071832 &    0.565317 &    2.290961 &    3.898816 &    0.333053 &   43.038535 \\
+min   &   15.124249 &   79.023804 &   231.425500 &    0.446000 &   -0.266960 &    4.845660 &   -1.710337 &   -1.050000 &   25.306232 \\
+25\%   &   35.252552 &   85.552954 &   539.264464 &    0.513750 &    1.070583 &    6.213148 &    3.578432 &   -0.797500 &   35.521651 \\
+50\%   &   48.653897 &   88.410324 &   951.161123 &    0.565000 &    1.436009 &    9.333677 &    5.834475 &   -0.575000 &   46.251792 \\
+75\%   &   63.034475 &   91.915834 &  1443.460732 &    0.633750 &    1.817973 &   10.564018 &    8.315159 &   -0.352500 &   72.943555 \\
+max   &   83.515053 &   97.016006 &  2988.952703 &    0.699000 &    2.647399 &   11.947835 &   23.116316 &    0.330000 &  200.384580 \\
+\bottomrule
+\end{tabular}
+
+
+
+
+\end{landscape}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.22]{gdp latex output.pdf}
+\caption{Regression Output (1)}
+\label{fig:universe}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.22]{hdi latex.pdf}
+\caption{Regression Output (2)}
+\label{fig:universe}
+\end{figure}
+
+
+
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+Barro, R. J. (1996): “Determinants of Economic Growth: A Cross-Country Empirical Study,” NBER Working Papers 5698 National Bureau of Economic Research, Inc.
+
+\bigskip
+
+\noindent Minh, H. V., &amp; Nguyen-Viet, H. (2011). Economic Aspects of Sanitation in Developing Countries. Environmental Health Insights, 5, 63-70.
+
+\bigskip
+
+\noindent W. (2004). Making Water a Part of Development (pp. 1-48, Rep.). Stockholm International Water Institute.
+
+\end{document}
+
